@@ -17,7 +17,7 @@ import javax.ws.rs.core.UriInfo;
  *
  * @author Niki
  */
-@Path("api/flights")
+@Path("flights")
 public class Flights {
 
     private static Generator generator = new Generator();

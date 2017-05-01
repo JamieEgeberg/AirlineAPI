@@ -17,12 +17,12 @@ import java.util.TimeZone;
  */
 public class Generator {
 
-    private static Random random;
+    private static Random random = new Random();
 
-    private String[] IATACodes = {"CPH", "ATL", "PEK", "ORD", "LHR", "HND",
-            "LAX", "CDG", "DFW", "FRA", "DEN", "HKG", "MAD", "DXB", "JFK",
-            "AMS", "CGK", "BKK", "SIN", "CAN", "PVG", "IAH", "LAS", "SFO",
-            "PHX", "CLT", "FCO", "SYD", "MIA", "MCO", "MUC"};
+    private static String[] IATACodes = {"CPH", "ATL", "PEK", "ORD", "LHR",
+            "HND", "LAX", "CDG", "DFW", "FRA", "DEN", "HKG", "MAD", "DXB",
+            "JFK", "AMS", "CGK", "BKK", "SIN", "CAN", "PVG", "IAH", "LAS",
+            "SFO", "PHX", "CLT", "FCO", "SYD", "MIA", "MCO", "MUC"};
 
     public Airline generateFlights(String from,
                                    String date,
