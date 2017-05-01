@@ -94,7 +94,7 @@ public class Generator {
                                                   random.nextInt(24),
                                                   random.nextInt(60));
         TimeZone tz = TimeZone.getTimeZone("UTC");
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         // Quoted "Z" to indicate UTC, no timezone offset
         df.setTimeZone(tz);
         return df.format(calendar.getTime());
