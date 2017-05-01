@@ -11,10 +11,6 @@ import java.util.List;
 public class Airline {
 
     public String airline = "JENS air";
-    public List<Flight> flights;
-
-    public Airline() {
-        flights = new ArrayList<>();
-    }
+    public List<Flight> flights = new ArrayList<>();
 
 }
