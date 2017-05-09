@@ -39,7 +39,7 @@ public class Generator {
             flight.setOrigin(from); 
             flight.setTraveltime(bound + 90); 
             flight.setTotalPrice( tickets * (bound + 40));
-            flight.setFlightID(fNumber + "-" +
+            flight.setFlightID("3333-" +
                     (random.nextInt(9999999) + 9999999));
             flight.setFlightNumber(from + "-" + flight.getDestination() +
                     "-" + fNumber);
