@@ -4,11 +4,9 @@ import entity.Airline;
 import entity.Flight;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Random;
-import java.util.TimeZone;
+import java.util.*;
 
 /**
  * Created by Niki on 2017-05-01.
@@ -82,22 +80,20 @@ public class Generator {
     }
 
     private String getADate(String date) {
-        int[] dateInIntegers = new int[3];
-        String[] dateInStrings = date.split("-");
-        for (int i = 0; i < dateInStrings.length && i < dateInIntegers.length;
-             i++) {
-            dateInIntegers[i] = Integer.parseInt(dateInStrings[i]);
-        }
-        Calendar calendar = new GregorianCalendar(dateInIntegers[0],
-                                                  dateInIntegers[1],
-                                                  dateInIntegers[2],
-                                                  random.nextInt(24),
-                                                  random.nextInt(60));
         TimeZone tz = TimeZone.getTimeZone("UTC");
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-        // Quoted "Z" to indicate UTC, no timezone offset
-        df.setTimeZone(tz);
-        return df.format(calendar.getTime());
+        try {
+            Date newDate = df.parse(date);
+            Calendar calendar = new GregorianCalendar();
+            calendar.setTime(newDate);
+            calendar.set(Calendar.HOUR, random.nextInt(24));
+            calendar.set(Calendar.MINUTE, random.nextInt(60));
+            df.setTimeZone(tz);
+            return df.format(calendar.getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return date;
+        }
     }
 
 }
