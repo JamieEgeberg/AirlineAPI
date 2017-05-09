@@ -18,13 +18,13 @@ public class Generator {
     private static Random random = new Random();
 
     private static String[] IATACodes = {"CPH", "ATL", "PEK", "ORD", "LHR",
-            "HND", "LAX", "CDG", "DFW", "FRA", "DEN", "HKG", "MAD", "DXB",
-            "JFK", "AMS", "CGK", "BKK", "SIN", "CAN", "PVG", "IAH", "LAS",
-            "SFO", "PHX", "CLT", "FCO", "SYD", "MIA", "MCO", "MUC"};
+        "HND", "LAX", "CDG", "DFW", "FRA", "DEN", "HKG", "MAD", "DXB",
+        "JFK", "AMS", "CGK", "BKK", "SIN", "CAN", "PVG", "IAH", "LAS",
+        "SFO", "PHX", "CLT", "FCO", "SYD", "MIA", "MCO", "MUC"};
 
     public Airline generateFlights(String from,
-                                   String date,
-                                   int tickets) {
+            String date,
+            int tickets) {
         Airline airline = new Airline();
         int count = random.nextInt(9) + 2;
         for (int i = 0; i < count; i++) {
@@ -32,24 +32,24 @@ public class Generator {
             int fNumber = random.nextInt(8999) + 1001;
             Flight flight = new Flight();
             flight.setDestination(getIATACode(from));
-            flight.setDate( getADate(date));
-            flight.setNumberOfSeats(tickets); 
-            flight.setOrigin(from); 
-            flight.setTraveltime(bound + 90); 
-            flight.setTotalPrice( tickets * (bound + 40));
-            flight.setFlightID("3333-" +
-                    (random.nextInt(9999999) + 9999999));
-            flight.setFlightNumber(from + "-" + flight.getDestination() +
-                    "-" + fNumber);
+            flight.setDate(getADate(date));
+            flight.setNumberOfSeats(tickets);
+            flight.setOrigin(from);
+            flight.setTraveltime(bound + 90);
+            flight.setTotalPrice(tickets * (bound + 40));
+            flight.setFlightID("3333-"
+                    + (random.nextInt(9999999) + 9999999));
+            flight.setFlightNumber(from + "-" + flight.getDestination()
+                    + "-" + fNumber);
             airline.flights.add(flight);
         }
         return airline;
     }
 
     public Airline generateFlights(String from,
-                                   String to,
-                                   String date,
-                                   int tickets) {
+            String to,
+            String date,
+            int tickets) {
         Airline airline = new Airline();
         int count = random.nextInt(9) + 2;
         for (int i = 0; i < count; i++) {
@@ -57,15 +57,15 @@ public class Generator {
             int fNumber = random.nextInt(8999) + 1001;
             Flight flight = new Flight();
             flight.setDestination(to);
-            flight.setDate( getADate(date));
-            flight.setNumberOfSeats(tickets); 
-            flight.setOrigin(from); 
-            flight.setTraveltime(bound + 90); 
-            flight.setTotalPrice( tickets * (bound + 40));
-            flight.setFlightID(fNumber + "-" +
-                    (random.nextInt(9999999) + 9999999));
-            flight.setFlightNumber(from + "-" + flight.getDestination() +
-                    "-" + fNumber);
+            flight.setDate(getADate(date));
+            flight.setNumberOfSeats(tickets);
+            flight.setOrigin(from);
+            flight.setTraveltime(bound + 90);
+            flight.setTotalPrice(tickets * (bound + 40));
+            flight.setFlightID("3333-"
+                    + (random.nextInt(9999999) + 9999999));
+            flight.setFlightNumber(from + "-" + flight.getDestination()
+                    + "-" + fNumber);
             airline.flights.add(flight);
         }
         return airline;
