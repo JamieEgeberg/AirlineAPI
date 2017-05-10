@@ -29,7 +29,7 @@ public class Reservation {
     String reserveeEmail;
 
     @OneToMany
-    List<String> passengers;
+    List<Passenger> passengers;
 
     public String getFlightID() {
         return flightID;
@@ -69,6 +69,14 @@ public class Reservation {
 
     public void setReserveeEmail(String reserveeEmail) {
         this.reserveeEmail = reserveeEmail;
+    }
+
+    public List<Passenger> getPassengers() {
+        return passengers;
+    }
+
+    public void setPassengers(List<Passenger> passengers) {
+        this.passengers = passengers;
     }
 
 }
