@@ -5,9 +5,9 @@
  */
 package entity;
 
-import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  *
@@ -36,6 +36,6 @@ public class IATA implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
-    
+
+
 }

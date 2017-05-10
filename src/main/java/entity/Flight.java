@@ -1,10 +1,10 @@
 package entity;
 
 import com.google.gson.annotations.Expose;
-import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
 /**
  * Created by Niki on 2017-05-01.
@@ -31,13 +31,6 @@ public class Flight implements Serializable {
     String origin; // IATA-Code
     @Expose
     String destination; // IATA-Code
-    
-    @Expose(serialize = false)
-    @ManyToOne
-    IATA originIATA;
-    @Expose(serialize = false)
-    @ManyToOne
-    IATA destinationIATA;
 
     public String getFlightID() {
         return flightID;
