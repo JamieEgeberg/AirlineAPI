@@ -62,7 +62,7 @@ public class FlightFacade {
         }
     }
 
-    public Reservation getReservationBytId(String id) {
+    public Reservation getReservationBytId(int id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Reservation.class, id);
