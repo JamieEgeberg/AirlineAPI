@@ -24,7 +24,7 @@ public class Generator {
         "JFK", "AMS", "CGK", "BKK", "SIN", "CAN", "PVG", "IAH", "LAS",
         "SFO", "PHX", "CLT", "FCO", "SYD", "MIA", "MCO", "MUC"};
 
-    public Airline generateFlights(String from,
+    public static Airline generateFlights(String from,
             String date,
             int tickets) {
         Airline airline = new Airline();
@@ -48,7 +48,7 @@ public class Generator {
         return airline;
     }
 
-    public Airline generateFlights(String from,
+    public static Airline generateFlights(String from,
             String to,
             String date,
             int tickets) {
@@ -73,7 +73,7 @@ public class Generator {
         return airline;
     }
 
-    private String getIATACode(String from) {
+    private static String getIATACode(String from) {
         String destination;
         do {
             destination = IATACodes[random.nextInt(IATACodes.length)];
@@ -81,7 +81,7 @@ public class Generator {
         return destination;
     }
 
-    private String getADate(String date) {
+    private static String getADate(String date) {
         int[] dateInIntegers = new int[3];
         String[] dateInStrings = date.split("-");
         for (int i = 0; i < dateInStrings.length && i < dateInIntegers.length;

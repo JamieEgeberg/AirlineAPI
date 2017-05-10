@@ -20,7 +20,6 @@ import javax.ws.rs.core.UriInfo;
 @Path("flights")
 public class Flights {
 
-    private static Generator generator = new Generator();
     private static Gson gson = new Gson();
 
     @Context
@@ -32,7 +31,7 @@ public class Flights {
     public String getFlightsFromDateTickets(@PathParam("from") String from,
                                             @PathParam("date") String date,
                                             @PathParam("tickets") int tickets) {
-        Airline airline = generator.generateFlights(from, date, tickets);
+        Airline airline = Generator.generateFlights(from, date, tickets);
         return gson.toJson(airline);
     }
 
@@ -43,7 +42,7 @@ public class Flights {
                                             @PathParam("to") String to,
                                             @PathParam("date") String date,
                                             @PathParam("tickets") int tickets) {
-        Airline airline = generator.generateFlights(from, to, date, tickets);
+        Airline airline = Generator.generateFlights(from, to, date, tickets);
         return gson.toJson(airline);
     }
 
