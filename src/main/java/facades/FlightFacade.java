@@ -8,10 +8,11 @@ package facades;
 import entity.Flight;
 import entity.Reservation;
 import entity.ReservationResponse;
-import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
+import java.util.List;
 
 /**
  *
@@ -42,7 +43,17 @@ public class FlightFacade {
         EntityManager em = getEntityManager();
         TypedQuery<Flight> query = em.createQuery("SELECT f FROM FLIGHT f WHERE f.origin=:org AND f.date LIKE :date", Flight.class);
         query.setParameter("org", origin);
-        query.setParameter("date", date.toLowerCase().split("t")[0]);
+        query.setParameter("date", date.toLowerCase().split("t")[0] + "%");
+        return query.getResultList();
+    }
+
+
+    public List<Flight> getFlightsByOriginAndDestinationAndDate(String origin, String destination, String date) {
+        EntityManager em = getEntityManager();
+        TypedQuery<Flight> query = em.createQuery("SELECT f FROM FLIGHT f WHERE f.origin=:org AND f.destination=:destination AND f.date LIKE :date", Flight.class);
+        query.setParameter("org", origin);
+        query.setParameter("destination", destination);
+        query.setParameter("date", date.toLowerCase().split("t")[0] + "%");
         return query.getResultList();
     }
 
