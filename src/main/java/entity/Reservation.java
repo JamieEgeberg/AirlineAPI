@@ -8,6 +8,7 @@ package entity;
 import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,7 +35,6 @@ public class Reservation implements Serializable {
     }
 
     @Id
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
@@ -53,9 +53,13 @@ public class Reservation implements Serializable {
     @Expose
     String reserveeEmail;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     @Expose
     List<Passenger> passengers;
+
+    public int getId() {
+        return id;
+    }
 
     public String getFlightID() {
         return flightID;
