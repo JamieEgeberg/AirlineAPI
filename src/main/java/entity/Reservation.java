@@ -5,8 +5,12 @@
  */
 package entity;
 
+import com.google.gson.annotations.Expose;
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -15,20 +19,42 @@ import javax.persistence.OneToMany;
  * @author Jamie
  */
 @Entity(name = "Reservation")
-public class Reservation {
+public class Reservation implements Serializable {
+
+    public Reservation() {
+    }
+
+    public Reservation(String flightID, int numberOfSeats, String reserveeName, String reversePhone, String reserveeEmail, List<Passenger> passengers) {
+        this.flightID = flightID;
+        this.numberOfSeats = numberOfSeats;
+        this.reserveeName = reserveeName;
+        this.reversePhone = reversePhone;
+        this.reserveeEmail = reserveeEmail;
+        this.passengers = passengers;
+    }
 
     @Id
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int id;
+
+    @Expose
     String flightID;
 
+    @Expose
     int numberOfSeats;
 
+    @Expose
     String reserveeName;
 
+    @Expose
     String reversePhone;
 
+    @Expose
     String reserveeEmail;
 
     @OneToMany
+    @Expose
     List<Passenger> passengers;
 
     public String getFlightID() {
