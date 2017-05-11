@@ -6,8 +6,9 @@
 package entity;
 
 import com.google.gson.annotations.Expose;
-import java.util.List;
+
 import javax.persistence.OneToMany;
+import java.util.List;
 
 /**
  *
@@ -47,9 +48,11 @@ public class ReservationResponse {
     @Expose
     int flightTime;
 
+    @Expose
     String reserveeName;
 
     @OneToMany
+    @Expose
     List<Passenger> passengers;
 
 }
