@@ -63,7 +63,7 @@ public class FlightFacadeTest {
         Reservation res = facade.getReservationBytId(testRes.getId());
 
         assertEquals(testRes.getFlightID(), res.getFlightID());
-        assertEquals(testRes.getReversePhone(), res.getReversePhone());
+        assertEquals(testRes.getReservePhone(), res.getReservePhone());
     }
 
 }

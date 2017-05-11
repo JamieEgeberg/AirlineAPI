@@ -29,7 +29,7 @@ public class Reservation implements Serializable {
         this.flightID = flightID;
         this.numberOfSeats = numberOfSeats;
         this.reserveeName = reserveeName;
-        this.reversePhone = reversePhone;
+        this.reservePhone = reversePhone;
         this.reserveeEmail = reserveeEmail;
         this.passengers = passengers;
     }
@@ -48,7 +48,7 @@ public class Reservation implements Serializable {
     String reserveeName;
 
     @Expose
-    String reversePhone;
+    String reservePhone;
 
     @Expose
     String reserveeEmail;
@@ -85,12 +85,12 @@ public class Reservation implements Serializable {
         this.reserveeName = reserveeName;
     }
 
-    public String getReversePhone() {
-        return reversePhone;
+    public String getReservePhone() {
+        return reservePhone;
     }
 
-    public void setReversePhone(String reversePhone) {
-        this.reversePhone = reversePhone;
+    public void setReservePhone(String reservePhone) {
+        this.reservePhone = reservePhone;
     }
 
     public String getReserveeEmail() {
