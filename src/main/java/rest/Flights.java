@@ -39,12 +39,11 @@ public class Flights {
     }
 
     @GET
-    @Path("/{from}/{date}/{tickets}")
+    @Path("{from}/{date}/{tickets}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getFlightsFromDateTickets(@PathParam("from") String from,
                                             @PathParam("date") String date,
                                             @PathParam("tickets") int tickets) {
-
         List<Flight> flights = facade.getFlightsByOriginAndDate(from, date);
         if (flights != null && flights.size() > 0) {
             for (int i = 0; i < flights.size(); i++)
@@ -63,7 +62,7 @@ public class Flights {
     }
 
     @GET
-    @Path("/{from}/{to}/{date}/{tickets}")
+    @Path("{from}/{to}/{date}/{tickets}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getFlightsFromDateTickets(@PathParam("from") String from,
                                             @PathParam("to") String to,
